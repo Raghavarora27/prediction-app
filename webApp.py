@@ -2,6 +2,10 @@ import streamlit as st        ##Streamlit is used to create beautiful, custom we
 import pandas as pd           ##used as open source data analysis and manipulation tool
 import numpy as np            ##used for working with array
 from fbprophet import Prophet ##Forcasting library(open source) released by facebook
+from fbprophet.diagnostics import performance_metrics
+from fbprophet.diagnostics import cross_validation
+from fbprophet.plot import plot_cross_validation_metric
+import base64
 st.title('Final project Slot for Python Developers')
 st.set_option('deprecation.showfileUploaderEncoding',False)  ##now we are setting up the file uploader for uploading the csv file for prediction...
 df = st.file_uploader('Import the time series csv file here. Columns must be labeled ds and y. The input to Prophet is always a dataframe with two columns: ds and y. The ds (datestamp) column should be of a format expected by Pandas, ideally YYYY-MM-DD for a date or YYYY-MM-DD HH:MM:SS for a timestamp. The y column must be numeric, and represents the measurement we wish to forecast.', type='csv', encoding='auto')
