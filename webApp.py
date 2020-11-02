@@ -4,7 +4,7 @@ import numpy as np            ##used for working with array
 from fbprophet import Prophet ##Forcasting library(open source) released by facebook
 st.title('Final project Slot for Python Developers')
 st.set_option('deprecation.showfileUploaderEncoding',False)  ##now we are setting up the file uploader for uploading the csv file for prediction...
-df = st.file_uploader('Import the Time series csv file here. Columns must be labeled as ds and y.')
+df = st.file_uploader('Import the time series csv file here. Columns must be labeled ds and y. The input to Prophet is always a dataframe with two columns: ds and y. The ds (datestamp) column should be of a format expected by Pandas, ideally YYYY-MM-DD for a date or YYYY-MM-DD HH:MM:SS for a timestamp. The y column must be numeric, and represents the measurement we wish to forecast.', type='csv', encoding='auto')
 if df is not None:
     data = pd.read_csv(df)
     data['ds'] = pd.to_datetime(data['ds'],errors='coerce')
